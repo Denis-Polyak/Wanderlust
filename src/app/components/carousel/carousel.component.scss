@@ -1,0 +1,198 @@
+/* =============================================
+   СТИЛІ КОМПОНЕНТА carousel
+   Специфічні тільки для цього компонента
+   ============================================= */
+
+.hero-carousel {
+  position: relative;
+  margin-bottom: 0;
+}
+
+/* Висота слайда */
+.carousel-item {
+  height: 90vh;
+  min-height: 560px;
+}
+
+/* Фон слайда */
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Темний оверлей */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 15, 30, 0.52);
+}
+
+/* Декоративний емодзі */
+.slide-emoji-deco {
+  position: absolute;
+  right: 8%;
+  bottom: 15%;
+  font-size: 12rem;
+  opacity: 0.15;
+  filter: blur(2px);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Підпис (caption) */
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  max-width: 820px;
+  padding: 0 2rem;
+}
+
+.slide-badge {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+
+.slide-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  margin-bottom: 1rem;
+}
+
+.slide-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,0.85);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.slide-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Індикатори */
+.carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.5);
+  border: none;
+  margin: 0 4px;
+
+  &.active {
+    background-color: var(--color-accent);
+    width: 28px;
+    border-radius: 4px;
+  }
+}
+
+/* =============================================
+   Пошукова панель
+   ============================================= */
+.search-bar-wrapper {
+  position: relative;
+  z-index: 10;
+  margin-top: -36px;
+}
+
+.search-bar {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  gap: 0;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.search-field {
+  flex: 1;
+  min-width: 160px;
+  padding: 0 1rem;
+
+  label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-dark);
+    width: 100%;
+    background: transparent;
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+}
+
+.search-divider {
+  width: 1px;
+  height: 40px;
+  background: #e0e0e0;
+  flex-shrink: 0;
+}
+
+.search-btn {
+  white-space: nowrap;
+  margin-left: 0.5rem;
+  padding: 12px 28px;
+  font-size: 0.9rem;
+}
+
+/* Адаптивність */
+@media (max-width: 767px) {
+  .carousel-item {
+    height: 70vh;
+  }
+
+  .slide-emoji-deco {
+    font-size: 6rem;
+    opacity: 0.1;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-divider {
+    display: none;
+  }
+
+  .search-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+}

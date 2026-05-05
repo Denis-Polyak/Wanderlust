@@ -1,0 +1,72 @@
+<!-- =============================================
+     КОМПОНЕНТ CAROUSEL – слайдер головного банера
+     ============================================= -->
+<section class="hero-carousel">
+  <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+    <!-- Індикатори -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0"
+              class="active" aria-current="true" aria-label="Слайд 1"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"
+              aria-label="Слайд 2"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"
+              aria-label="Слайд 3"></button>
+    </div>
+
+    <!-- Слайди -->
+    <div class="carousel-inner">
+      <div class="carousel-item active" *ngFor="let slide of slides; let i = index"
+           [class.active]="i === 0">
+        <div class="slide-bg" [style.background]="slide.bg">
+          <div class="slide-overlay"></div>
+          <div class="slide-emoji-deco">{{ slide.emoji }}</div>
+        </div>
+        <div class="carousel-caption">
+          <span class="slide-badge">{{ slide.badge }}</span>
+          <h1 class="slide-title">{{ slide.title }}</h1>
+          <p class="slide-subtitle">{{ slide.subtitle }}</p>
+          <div class="slide-actions">
+            <a href="#" class="btn btn-wanderlust btn-lg me-3">Дізнатись більше</a>
+            <a href="#" class="btn btn-outline-light btn-lg">Усі тури</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Стрілки управління -->
+    <button class="carousel-control-prev" type="button"
+            data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Попередній</span>
+    </button>
+    <button class="carousel-control-next" type="button"
+            data-bs-target="#mainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Наступний</span>
+    </button>
+  </div>
+
+  <!-- Пошукова панель під каруселлю -->
+  <div class="search-bar-wrapper">
+    <div class="container">
+      <div class="search-bar">
+        <div class="search-field">
+          <label>🌍 Напрямок</label>
+          <input type="text" placeholder="Куди летимо?">
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <label>📅 Дата виїзду</label>
+          <input type="text" placeholder="Оберіть дату">
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+          <label>👥 Мандрівники</label>
+          <input type="text" placeholder="1 особа">
+        </div>
+        <button class="btn btn-wanderlust search-btn">Знайти тур</button>
+      </div>
+    </div>
+  </div>
+</section>

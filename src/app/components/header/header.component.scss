@@ -1,0 +1,98 @@
+/* =============================================
+   СТИЛІ КОМПОНЕНТА header
+   Специфічні тільки для цього компонента
+   ============================================= */
+
+.navbar {
+  background: transparent;
+  padding: 1.2rem 0;
+  transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+
+  /* Клас, що додається при скролі (через HostListener) */
+  &.scrolled {
+    background: var(--color-primary);
+    padding: 0.6rem 0;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  }
+}
+
+/* Бренд */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff !important;
+  letter-spacing: -0.5px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.brand-icon {
+  font-size: 1.4rem;
+  color: var(--color-accent);
+}
+
+.brand-text {
+  color: #fff;
+}
+
+/* Посилання навігації */
+.nav-link {
+  color: rgba(255,255,255,0.88) !important;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  position: relative;
+  padding: 0.5rem 0.75rem !important;
+  transition: color var(--transition) !important;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0.75rem;
+    right: 0.75rem;
+    height: 2px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transition: transform var(--transition);
+  }
+
+  &:hover {
+    color: #fff !important;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* Кнопка CTA у навбарі */
+.nav-cta {
+  font-size: 0.85rem;
+  padding: 8px 22px !important;
+}
+
+/* Відступ під фіксований navbar */
+.navbar-spacer {
+  height: 76px;
+}
+
+/* Dropdown */
+.dropdown-menu-dark {
+  background-color: var(--color-primary) !important;
+  border: 1px solid rgba(255,255,255,0.1);
+
+  .dropdown-item {
+    color: rgba(255,255,255,0.8) !important;
+
+    &:hover {
+      background-color: rgba(255,255,255,0.08) !important;
+      color: #fff !important;
+    }
+  }
+}

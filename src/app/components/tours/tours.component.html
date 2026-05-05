@@ -1,0 +1,124 @@
+<!-- =============================================
+     КОМПОНЕНТ TOURS – Лабораторна робота №8
+     Структурні директиви, директиви атрибутів, пайпи
+     ============================================= -->
+<section class="tours-section">
+  <div class="container py-5">
+
+    <!-- ── 1. ІНТЕРПОЛЯЦІЯ ────────────────────────── -->
+    <h2 class="tours-main-title" (click)="isFilterVisible = !isFilterVisible">
+      {{ title }}
+      <span class="toggle-hint">{{ isFilterVisible ? '▲ приховати інфо' : '▼ показати інфо' }}</span>
+    </h2>
+
+    <!-- ── 2. ngIf – показ/приховування блоку ──────── -->
+    <div class="info-block" *ngIf="isFilterVisible">
+      <p>
+        Натисніть на заголовок, щоб показати або приховати цей блок (<strong>ngIf</strong>).
+        Каталог оновлено: <strong>{{ getDate() | date:'dd.MM.yyyy, HH:mm' }}</strong>
+        &nbsp;|&nbsp; Рік: <strong>{{ getDate() | date:'yyyy' }}</strong>
+      </p>
+      <p>Ціни вказані у євро (€) та відсортовані за зростанням вартості.</p>
+    </div>
+
+    <!-- ── 3. ngFor – список напрямків ─────────────── -->
+    <div class="destinations-block mb-4">
+      <h5 class="block-label">Доступні напрямки (<strong>ngFor</strong>):</h5>
+      <ul class="destinations-list">
+        <li *ngFor="let dest of destinations; let i = index">
+          <span class="dest-index">{{ i + 1 }}.</span> {{ dest }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- ── 4. ngSwitch + ng-container – тільки доступні тури ── -->
+    <h5 class="block-label">Лише доступні тури (<strong>ngSwitch</strong> + <strong>ng-container</strong>):</h5>
+    <ul class="available-list mb-4">
+      <ng-container *ngFor="let tour of tours">
+        <ng-container [ngSwitch]="tour.status">
+          <li *ngSwitchCase="'available'" class="available-item">
+            ✅ {{ tour.name }} — {{ tour.destination }}
+          </li>
+        </ng-container>
+      </ng-container>
+    </ul>
+
+    <!-- ── 5. Повна таблиця: ngStyle + ngClass + пайпи ── -->
+    <h5 class="block-label">Усі тури (<strong>ngStyle</strong>, <strong>ngClass</strong>, <strong>пайпи</strong>):</h5>
+    <div class="table-responsive">
+      <table class="tours-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Назва туру</th>
+            <th>Напрямок</th>
+            <th>Континент</th>
+            <th>Ціна (€)</th>
+            <th>Днів</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ngFor по масиву tours -->
+          <tr *ngFor="let tour of tours; let i = index"
+              [ngStyle]="{ 'background-color': getStatusColor(tour.status) }"
+              [ngClass]="{ 'hit-tour': tour.isHead }">
+
+            <td>{{ i + 1 }}</td>
+
+            <!-- пайп uppercase для назви -->
+            <td class="tour-name">
+              {{ tour.name | uppercase }}
+              <span class="hit-badge" *ngIf="tour.isHead">ХІТ</span>
+            </td>
+
+            <!-- пайп titlecase для напрямку -->
+            <td>{{ tour.destination | titlecase }}</td>
+
+            <td>{{ tour.continent }}</td>
+
+            <!-- пайп currency для ціни -->
+            <td class="price-cell">
+              {{ tour.price | currency:'EUR':'symbol':'1.0-0' }}
+            </td>
+
+            <!-- пайп для кількості днів -->
+            <td>{{ tour.days }} {{ tour.days === 7 ? 'днів' : 'днів' }}</td>
+
+            <!-- ngStyle для тексту статусу -->
+            <td>
+              <span class="status-badge"
+                    [ngStyle]="{
+                      'background-color': getStatusColor(tour.status),
+                      'color': getStatusTextColor(tour.status),
+                      'border': '1px solid ' + getStatusTextColor(tour.status)
+                    }">
+                <ng-container [ngSwitch]="tour.status">
+                  <span *ngSwitchCase="'available'">Доступний</span>
+                  <span *ngSwitchCase="'limited'">Мало місць</span>
+                  <span *ngSwitchCase="'sold_out'">Продано</span>
+                </ng-container>
+              </span>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── 6. Пайпи – окремий блок демонстрації ───── -->
+    <div class="pipes-block mt-4">
+      <h5 class="block-label">Демонстрація пайпів:</h5>
+      <ul class="pipes-list">
+        <li><code>date:'fullDate'</code> → {{ getDate() | date:'fullDate' }}</li>
+        <li><code>date:'shortTime'</code> → {{ getDate() | date:'shortTime' }}</li>
+        <li><code>'wanderlust' | uppercase</code> → {{ 'wanderlust' | uppercase }}</li>
+        <li><code>'WANDERLUST' | lowercase</code> → {{ 'WANDERLUST' | lowercase }}</li>
+        <li><code>1800 | currency:'EUR'</code> → {{ 1800 | currency:'EUR':'symbol':'1.0-0' }}</li>
+        <li><code>0.856 | percent</code> → {{ 0.856 | percent }}</li>
+        <li><code>1234567 | number</code> → {{ 1234567 | number }}</li>
+      </ul>
+    </div>
+
+  </div>
+</section>

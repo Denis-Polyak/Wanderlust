@@ -1,0 +1,151 @@
+/* =============================================
+   СТИЛІ КОМПОНЕНТА footer
+   Специфічні тільки для цього компонента
+   ============================================= */
+
+.site-footer {
+  background-color: var(--color-dark);
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+}
+
+/* Верхня частина */
+.footer-top {
+  padding: 60px 0 40px;
+}
+
+/* Бренд у футері */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-icon {
+  font-size: 1.6rem;
+  color: var(--color-accent);
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.footer-desc {
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  max-width: 320px;
+}
+
+/* Соціальні мережі */
+.footer-socials {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  font-size: 1rem;
+  transition: background var(--transition), transform var(--transition);
+  text-decoration: none;
+
+  &:hover {
+    background: var(--color-accent);
+    transform: translateY(-2px);
+  }
+}
+
+/* Заголовки колонок */
+.footer-heading {
+  font-family: var(--font-display);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* Посилання */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: rgba(255,255,255,0.55);
+    transition: color var(--transition), padding-left var(--transition);
+
+    &:hover {
+      color: var(--color-accent);
+      padding-left: 4px;
+    }
+  }
+}
+
+/* Контактна інформація */
+.footer-contacts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  a {
+    color: rgba(255,255,255,0.55);
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}
+
+.contact-icon {
+  flex-shrink: 0;
+  font-size: 1rem;
+  margin-top: 1px;
+}
+
+/* Нижній рядок */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 20px 0;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.82rem;
+
+  a {
+    color: rgba(255,255,255,0.45);
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}
+
+/* ПІБ розробника */
+.developer-credit {
+  color: rgba(255,255,255,0.25);
+  font-size: 0.75rem;
+
+  strong {
+    color: rgba(255,255,255,0.45);
+  }
+}
