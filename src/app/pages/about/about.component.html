@@ -1,0 +1,53 @@
+<!-- =============================================
+     СТОРІНКА "ПРО НАС" – маршрут /about
+     ============================================= -->
+<main>
+  <!-- Hero -->
+  <div style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); padding: 80px 0 60px; text-align:center; color:#fff;">
+    <h1 style="font-size:2.5rem; font-weight:900;">✈️ Про Wanderlust</h1>
+    <p style="opacity:0.8; font-size:1.1rem; margin-top:0.5rem;">Ми перетворюємо мрії на подорожі з 2010 року</p>
+  </div>
+
+  <!-- Статистика -->
+  <section class="section">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-md-3" *ngFor="let s of stats">
+          <div class="feature-box">
+            <div style="font-size:2.2rem; font-weight:900; color:var(--color-accent);">{{ s.value }}</div>
+            <p style="margin:0; color:#666;">{{ s.label }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Про компанію -->
+  <section class="section" style="background:#f8f9fa;">
+    <div class="container">
+      <h2 class="section-title text-center">Наша місія</h2>
+      <p class="section-subtitle text-center" style="max-width:700px; margin:0 auto;">
+        Wanderlust — це більше ніж туристичне агентство. Ми — ваш надійний партнер у подорожах.
+        Кожен тур ретельно спланований, щоб ви отримали незабутні враження без зайвих клопотів.
+      </p>
+    </div>
+  </section>
+
+  <!-- Команда -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title text-center">Наша команда</h2>
+      <p class="section-subtitle text-center">Люди, які роблять ваші подорожі можливими</p>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4" *ngFor="let member of team">
+          <div class="card card-wanderlust h-100 text-center p-4">
+            <div style="font-size:4rem; margin-bottom:1rem;">{{ member.emoji }}</div>
+            <h5 class="card-title">{{ member.name }}</h5>
+            <p style="color:var(--color-accent); font-weight:600; margin-bottom:0.5rem;">{{ member.role }}</p>
+            <p class="card-text">{{ member.bio }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

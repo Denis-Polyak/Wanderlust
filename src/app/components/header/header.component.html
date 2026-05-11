@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" [class.scrolled]="isScrolled">
   <div class="container">
     <!-- Логотип / бренд -->
-    <a class="navbar-brand brand" href="#">
+    <a class="navbar-brand brand" routerLink="/home">
       <span class="brand-icon">✈</span>
       <span class="brand-text">Wanderlust</span>
     </a>
@@ -23,29 +23,27 @@
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
         <li class="nav-item">
-          <a class="nav-link" href="#">Напрямки</a>
+          <a class="nav-link"
+             routerLink="/home"
+             routerLinkActive="active">Головна</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Тури</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button"
-             data-bs-toggle="dropdown" aria-expanded="false">
-            Сервіси
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#">Авіаквитки</a></li>
-            <li><a class="dropdown-item" href="#">Готелі</a></li>
-            <li><a class="dropdown-item" href="#">Страхування</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Трансфери</a></li>
-          </ul>
+          <a class="nav-link"
+             routerLink="/tours"
+             routerLinkActive="active">Тури</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Про нас</a>
+          <a class="nav-link"
+             routerLink="/services"
+             routerLinkActive="active">Сервіси</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/about"
+             routerLinkActive="active">Про нас</a>
         </li>
         <li class="nav-item ms-lg-3">
-          <a class="btn btn-wanderlust nav-cta" href="#">Забронювати</a>
+          <a class="btn btn-wanderlust nav-cta" routerLink="/tours">Забронювати</a>
         </li>
       </ul>
     </div>
