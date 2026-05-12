@@ -1,4 +1,6 @@
-<app-header></app-header>
+<!-- =============================================
+     СТОРІНКА "ГОЛОВНА" – маршрут /home
+     ============================================= -->
 <main>
   <app-carousel></app-carousel>
 
@@ -19,7 +21,7 @@
               <p class="card-text">{{ dest.description }}</p>
               <div class="d-flex justify-content-between align-items-center mt-3">
                 <span class="price">від <strong>{{ dest.price }}</strong></span>
-                <a href="#" class="btn btn-wanderlust btn-sm">Деталі</a>
+                <a routerLink="/tours" class="btn btn-wanderlust btn-sm">Деталі</a>
               </div>
             </div>
           </div>
@@ -27,9 +29,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ЛР №8 – компонент Tours -->
-  <app-tours></app-tours>
 
   <!-- Секція "Чому ми" -->
   <section class="section why-us-section">
@@ -48,4 +47,3 @@
     </div>
   </section>
 </main>
-<app-footer></app-footer>

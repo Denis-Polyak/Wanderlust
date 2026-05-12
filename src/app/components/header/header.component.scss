@@ -77,15 +77,6 @@
   padding: 8px 22px !important;
 }
 
-/* Активне посилання (routerLinkActive) */
-.nav-link.active {
-  color: #fff !important;
-
-  &::after {
-    transform: scaleX(1);
-  }
-}
-
 /* Відступ під фіксований navbar */
 .navbar-spacer {
   height: 76px;

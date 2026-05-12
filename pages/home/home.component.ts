@@ -1,26 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { ToursComponent } from './components/tours/tours.component';
+import { RouterLink } from '@angular/router';
+import { CarouselComponent } from '../../components/carousel/carousel.component';
+import { ToursComponent } from '../../components/tours/tours.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    HeaderComponent,
-    CarouselComponent,
-    FooterComponent,
-    ToursComponent
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [CommonModule, RouterLink, CarouselComponent, ToursComponent],
+  templateUrl: './home.component.html',
 })
-export class AppComponent {
+export class HomeComponent {
   destinations = [
     {
       name: 'Санторіні',

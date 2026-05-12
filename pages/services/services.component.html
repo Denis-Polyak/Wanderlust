@@ -1,0 +1,35 @@
+<!-- =============================================
+     СТОРІНКА "СЕРВІСИ" – маршрут /services
+     ============================================= -->
+<main>
+  <!-- Hero -->
+  <div style="background: linear-gradient(135deg, #3a1c71 0%, #d76d77 50%, #ffaf7b 100%); padding: 80px 0 60px; text-align:center; color:#fff;">
+    <h1 style="font-size:2.5rem; font-weight:900;">🛎️ Наші сервіси</h1>
+    <p style="opacity:0.8; font-size:1.1rem; margin-top:0.5rem;">Все для ідеальної подорожі в одному місці</p>
+  </div>
+
+  <!-- Картки сервісів -->
+  <section class="section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6" *ngFor="let service of services">
+          <div class="card card-wanderlust h-100">
+            <div class="card-img-placeholder" [style.background]="service.color" style="height:120px;">
+              <span style="font-size:3rem;">{{ service.icon }}</span>
+            </div>
+            <div class="card-body p-4">
+              <h4 class="card-title">{{ service.title }}</h4>
+              <p class="card-text">{{ service.description }}</p>
+              <ul style="list-style:none; padding:0; margin-top:1rem;">
+                <li *ngFor="let feat of service.features" style="padding:0.25rem 0; color:#555;">
+                  ✅ {{ feat }}
+                </li>
+              </ul>
+              <button class="btn btn-wanderlust mt-3">Дізнатись більше</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
