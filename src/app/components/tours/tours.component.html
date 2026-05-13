@@ -88,11 +88,12 @@
             <!-- ngStyle для тексту статусу -->
             <td>
               <span class="status-badge"
-                    [ngStyle]="{
-                      'background-color': getStatusColor(tour.status),
-                      'color': getStatusTextColor(tour.status),
-                      'border': '1px solid ' + getStatusTextColor(tour.status)
-                    }">
+                  [appFavoriteColor]="tour.status"
+                  [ngStyle]="{
+                    'background-color': getStatusColor(tour.status),
+                    'color': getStatusTextColor(tour.status),
+                    'border': '1px solid ' + getStatusTextColor(tour.status)
+                  }">
                 <ng-container [ngSwitch]="tour.status">
                   <span *ngSwitchCase="'available'">Доступний</span>
                   <span *ngSwitchCase="'limited'">Мало місць</span>
@@ -107,7 +108,7 @@
     </div>
 
     <!-- ── 6. Пайпи – окремий блок демонстрації ───── -->
-    <div class="pipes-block mt-4">
+    <div class="pipes-block mt-4" *appUnlessMobile>
       <h5 class="block-label">Демонстрація пайпів:</h5>
       <ul class="pipes-list">
         <li><code>date:'fullDate'</code> → {{ getDate() | date:'fullDate' }}</li>

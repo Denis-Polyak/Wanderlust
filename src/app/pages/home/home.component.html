@@ -11,7 +11,7 @@
       <p class="section-subtitle">Відкрийте для себе найкращі куточки планети</p>
       <div class="row g-4">
         <div class="col-md-4" *ngFor="let dest of destinations">
-          <div class="card card-wanderlust h-100">
+          <div class="card card-wanderlust h-100" appHighlightCard>
             <div class="card-img-placeholder" [style.background]="dest.color">
               <span class="dest-emoji">{{ dest.emoji }}</span>
             </div>

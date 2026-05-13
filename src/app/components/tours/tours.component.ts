@@ -1,5 +1,9 @@
+import { RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FavoriteColorDirective } from '../../directives/favorite-color.directive';
+import { HighlightCardDirective } from '../../directives/highlight-card.directive';
+import { UnlessMobileDirective } from '../../directives/unless-mobile.directive';
 
 // Інтерфейс для опису туру
 interface Tour {
@@ -16,7 +20,13 @@ interface Tour {
 @Component({
   selector: 'app-tours',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+  CommonModule,
+  RouterModule,
+  FavoriteColorDirective,
+  HighlightCardDirective,
+  UnlessMobileDirective
+],
   templateUrl: './tours.component.html',
   styleUrl: './tours.component.scss'
 })
