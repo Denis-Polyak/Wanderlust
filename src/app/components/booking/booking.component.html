@@ -1,0 +1,87 @@
+<div class="container mt-4">
+  <div class="card p-4 shadow">
+
+    <h2 class="mb-3">Booking Form</h2>
+
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+
+      <!-- FULL NAME -->
+      <input type="text"
+             class="form-control mb-1"
+             formControlName="fullName"
+             placeholder="Full Name">
+
+      <div class="text-danger mb-2"
+           *ngIf="bookingForm.get('fullName')?.invalid && bookingForm.get('fullName')?.touched">
+        Ім’я є обов’язковим
+      </div>
+
+      <!-- EMAIL -->
+      <input type="email"
+             class="form-control mb-1"
+             formControlName="email"
+             placeholder="Email">
+
+      <div class="text-danger mb-2"
+           *ngIf="bookingForm.get('email')?.invalid && bookingForm.get('email')?.touched">
+        Введіть коректний email
+      </div>
+
+      <!-- PHONE -->
+      <input type="text"
+             class="form-control mb-1"
+             formControlName="phone"
+             placeholder="Phone">
+
+      <div class="text-danger mb-2"
+           *ngIf="bookingForm.get('phone')?.invalid && bookingForm.get('phone')?.touched">
+        Введіть номер телефону
+      </div>
+
+      <!-- DESTINATION -->
+      <input type="text"
+             class="form-control mb-1"
+             formControlName="destination"
+             placeholder="Destination">
+
+      <div class="text-danger mb-2"
+           *ngIf="bookingForm.get('destination')?.invalid && bookingForm.get('destination')?.touched">
+        Оберіть напрямок
+      </div>
+
+      <!-- PEOPLE COUNT -->
+      <input type="number"
+             class="form-control mb-1"
+             formControlName="peopleCount"
+             placeholder="People count">
+
+      <div class="text-danger mb-2"
+           *ngIf="bookingForm.get('peopleCount')?.invalid && bookingForm.get('peopleCount')?.touched">
+        Мінімум 1 людина
+      </div>
+
+      <!-- DATE -->
+      <input type="date"
+             class="form-control mb-1"
+             formControlName="travelDate">
+
+      <div class="text-danger mb-2"
+           *ngIf="bookingForm.get('travelDate')?.invalid && bookingForm.get('travelDate')?.touched">
+        Оберіть дату подорожі
+      </div>
+
+      <!-- COMMENT -->
+      <textarea class="form-control mb-3"
+                formControlName="comment"
+                placeholder="Comment (optional)">
+      </textarea>
+
+      <!-- SUBMIT -->
+      <button type="submit" class="btn btn-primary w-100">
+        Submit Booking
+      </button>
+
+    </form>
+
+  </div>
+</div>
